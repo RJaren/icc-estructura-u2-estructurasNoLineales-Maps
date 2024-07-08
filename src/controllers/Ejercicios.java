@@ -28,8 +28,15 @@ public class Ejercicios {
      * frecuencia.
      */
     public static boolean areAnagrams(String str1, String str2) {
-        throw new UnsupportedOperationException("Not implemented yet");
-
+        if(str1.length() != str2.length()){
+            return false;
+        }
+        HashMap<Character, Integer> conteoCaracteresMap1 = new HashMap<>();
+        HashMap<Character, Integer> conteoCaracteresMap2 = new HashMap<>();
+        for(Character character : conteoCaracteresMap1.keySet()){
+            conteoCaracteresMap1.put(character,+1);
+        }
+        return true;
     }
 
     /*
