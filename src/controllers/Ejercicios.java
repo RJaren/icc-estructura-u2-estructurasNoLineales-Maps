@@ -31,11 +31,23 @@ public class Ejercicios {
         if(str1.length() != str2.length()){
             return false;
         }
-        HashMap<Character, Integer> conteoCaracteresMap1 = new HashMap<>();
-        HashMap<Character, Integer> conteoCaracteresMap2 = new HashMap<>();
-        for(Character character : conteoCaracteresMap1.keySet()){
-            conteoCaracteresMap1.put(character,+1);
+        HashMap<Character, Integer> conteoCaracteres = new HashMap<>();
+
+        for (int i = 0; i < str1.length(); i++) {
+            char charFromStr1 = str1.charAt(i);
+            char charFromStr2 = str2.charAt(i);
+
+            conteoCaracteres.put(charFromStr1, conteoCaracteres.getOrDefault(charFromStr1, 0) + 1);
+            conteoCaracteres.put(charFromStr2, conteoCaracteres.getOrDefault(charFromStr2, 0) - 1);
         }
+
+
+        for (int count : conteoCaracteres.values()) {
+            if (count != 0) {
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -55,6 +67,14 @@ public class Ejercicios {
      * Output: null
      */
     public int[] sumatoriaDeDos(int[] nums, int objetivo) {
-        throw new UnsupportedOperationException("Not implemented yet");
+       HashMap<Integer, Integer> mapa = new HashMap<>();
+        for (int i =0 ; i< nums.length; i++){
+            int com= objetivo - nums[i];
+            if (mapa.containsKey(com)){
+                return new int []{mapa.get(com), i};
+            }
+            mapa.put(nums[i], i);
+        }
+        return null;
     }
 }
